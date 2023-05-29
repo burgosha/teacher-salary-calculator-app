@@ -16,7 +16,7 @@ function App() {
             <option value="7">Psicología</option>
           </select>
           <select className="cargo form-select mb-3" aria-label="Default select example">
-            <option selected>Seleccione el Cargo</option>
+            <option selected disabled>Seleccione el Cargo</option>
             <option value="1">Inicial - Asesor Docente</option>
             <option value="2">Inicial - Bibliotecario</option>
             <option value="3">Inicial - Cargo Educación Física y Artística</option>
@@ -42,7 +42,16 @@ function App() {
             <option value="23">Inicial - X2 o Z3</option>
             <option value="24">Inicial - Profesor Ed. Física (Hs Cátedra)</option>
           </select>
-
+          <select className="nivel form-select mb-3" aria-label="Default select example">
+            <option selected>Seleccione la Carga Horaria</option>
+            <option value="1">Jornada Simple</option>
+            <option value="2">Jornada Extendida (6hs)</option>
+            <option value="3">Jornada Completa (8hs)</option>
+          </select>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon1">Antigüedad</span>
+            <input type="number" className="form-control" placeholder="Antigüedad en años" aria-label="Antiguedad" aria-describedby="basic-addon1" min = {0} />
+          </div>
         </div>
       </div>
     </div>
