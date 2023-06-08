@@ -52,6 +52,19 @@ function App() {
             <span className="input-group-text" id="basic-addon1">Antigüedad</span>
             <input type="number" className="form-control" placeholder="Antigüedad en años" aria-label="Antiguedad" aria-describedby="basic-addon1" min = {0} />
           </div>
+          <select className="ruralidad form-select mb-3" aria-label="Default select example">
+            <option selected>Seleccione la Ruralidad</option>
+            <option value="1">Sin Ruralidad</option>
+            <option value="2">Ruralidad I (30%)</option>
+            <option value="3">Ruralidad II (60%)</option>
+            <option value="3">Ruralidad III (90%)</option>
+            <option value="3">Ruralidad IV (100%)</option>
+            <option value="3">Ruralidad V (120%)</option>
+          </select>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="mod-ruralidad">Módulos con Ruralidad</span>
+            <input type="number" className="form-control" placeholder="Módulos con Ruralidad" aria-label="Modulos con Ruralidad" aria-describedby="mod-ruralidad" min = {0} />
+          </div>
         </div>
       </div>
     </div>
