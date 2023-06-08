@@ -1,10 +1,33 @@
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+  const [nivel, setNivel] = useState('');
+
+  const options = {
+      option1: 'Inicial',
+      option2: 'Primaria',
+      option3: 'Secundaria',
+      option4: 'Adultos',
+      option5: 'Especial',
+      option6: 'Superior',
+      option7: 'Psicología'
+  }
+
+  const handleOptionChange = (e) => {
+    setNivel(e.target.value);
+  }
+
   return (
     <div className="App">
       <div className="container d-flex justify-content-center align-items-center">
         <div className="container-sm p-3 bg-light">
+          <select id="nivel" className="nivel form-select mb-3" value={nivel} onChage={handleOptionChange}>
+            <option value="">Seleccione Nivel y/o Modalidad</option>
+            {Object.entries(options).map(([key, value]) => (
+              <option key={key} value={value}>{value}</option>
+            ))}
+          </select>
           <select className="nivel form-select mb-3" aria-label="Default select example">
             <option selected>Seleccione Nivel y/o Modalidad</option>
             <option value="1">Incial</option>
