@@ -18,11 +18,13 @@ function App() {
     setNivel(e.target.value);
   }
 
+  console.log(nivel);
+
   return (
     <div className="App">
       <div className="container d-flex justify-content-center align-items-center">
         <div className="container-sm p-3 bg-light">
-          <select id="nivel" className="nivel form-select mb-3" value={nivel} onChage={handleOptionChange}>
+          <select id="nivel" className="nivel form-select mb-3" value={nivel} onChange={handleOptionChange}>
             <option value="">Seleccione Nivel y/o Modalidad</option>
             {Object.entries(options).map(([key, value]) => (
               <option key={key} value={value}>{value}</option>
@@ -87,6 +89,9 @@ function App() {
           <div className="input-group mb-3">
             <span className="input-group-text" id="mod-ruralidad">Módulos con Ruralidad</span>
             <input type="number" className="form-control" placeholder="Módulos con Ruralidad" aria-label="Modulos con Ruralidad" aria-describedby="mod-ruralidad" min = {0} />
+          </div>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button className="btn btn-primary" type="button">Calcular</button>
           </div>
         </div>
       </div>
