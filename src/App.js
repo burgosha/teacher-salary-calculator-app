@@ -4,17 +4,42 @@ import './App.css';
 function App() {
   const [nivel, setNivel] = useState('');
 
-  const options = {
-      option1: 'Inicial',
-      option2: 'Primaria',
-      option3: 'Secundaria',
-      option4: 'Adultos',
-      option5: 'Especial',
-      option6: 'Superior',
-      option7: 'Psicología'
+  const niveles = {
+      Inicial: [
+        "Inicial - Asesor Docente",
+        "Inicial - Bibliotecario",
+        "Inicial - Cargo Educación Física y Artística",
+        "Inicial - D1-Director de 1ra categoría - 20 Secciones 4hs",
+        "Inicial - D2-Director de 2da categoría - 4hs",
+        "Inicial - D3-Director de 3ra categoría - 4hs",
+        "Inicial - Director de Repartición Docente (DR)",
+        "Inicial - Inspector",
+        "Inicial - Inspector Jefe (IZ-ID-I1)",
+        "Inicial - K5",
+        "Inicial - Maestro de Grado Transferido",
+        "Inicial - Maestro de Sala (MI-JM)",
+        "Inicial - Preceptor",
+        "Inicial - Representante Docente En El Tribunal",
+        "Inicial - Secretario",
+        "Inicial - Secretario de Inspección de 1ra (S1)",
+        "Inicial - Secretario de Inspección de 2da (S2)",
+        "Inicial - Secretario de Inspección de 3ra (S3)",
+        "Inicial - Secretario de Jefatura (SJ)",
+        "Inicial - Subdirector de Rep. Docente (SD-IR)",
+        "Inicial - V1-Vicedirector de 1ra categoría - 20 Secciones 4hs",
+        "Inicial - V2-Vicedirector de 2da categoría - 4hs",
+        "Inicial - X2 o Z3",
+        "Inicial - Profesor Ed. Física (Hs Cátedra)",
+      ],
+      Primaria: 'Primaria',
+      Secundaria: 'Secundaria',
+      Adultos: 'Adultos',
+      Especial: 'Especial',
+      Superior: 'Superior',
+      Psicologia: 'Psicología'
   }
 
-  const handleOptionChange = (e) => {
+  const handleNivelChange = (e) => {
     setNivel(e.target.value);
   }
 
@@ -24,49 +49,24 @@ function App() {
     <div className="App">
       <div className="container d-flex justify-content-center align-items-center">
         <div className="container-sm p-3 bg-light">
-          <select id="nivel" className="nivel form-select mb-3" value={nivel} onChange={handleOptionChange}>
+          <select id="nivel" className="nivel form-select mb-3" value={nivel} onChange={handleNivelChange}>
             <option value="">Seleccione Nivel y/o Modalidad</option>
-            {Object.entries(options).map(([key, value]) => (
-              <option key={key} value={value}>{value}</option>
+            {Object.keys(niveles).map((option) => (
+              <option key={option} value={option}>{option}</option>
             ))}
           </select>
-          <select className="nivel form-select mb-3" aria-label="Default select example">
-            <option selected>Seleccione Nivel y/o Modalidad</option>
-            <option value="1">Incial</option>
-            <option value="2">Primaria</option>
-            <option value="3">Secundaria</option>
-            <option value="4">Adultos</option>
-            <option value="5">Especial</option>
-            <option value="6">Superior</option>
-            <option value="7">Psicología</option>
-          </select>
+          { nivel && (
           <select className="cargo form-select mb-3" aria-label="Default select example">
-            <option selected disabled>Seleccione el Cargo</option>
-            <option value="1">Inicial - Asesor Docente</option>
-            <option value="2">Inicial - Bibliotecario</option>
-            <option value="3">Inicial - Cargo Educación Física y Artística</option>
-            <option value="4">Inicial - D1-Director de 1ra categoría - 20 Secciones 4hs</option>
-            <option value="5">Inicial - D2-Director de 2da categoría - 4hs</option>
-            <option value="6">Inicial - D3-Director de 3ra categoría - 4hs</option>
-            <option value="7">Inicial - Director de Repartición Docente (DR)</option>
-            <option value="8">Inicial - Inspector</option>
-            <option value="9">Inicial - Inspector Jefe (IZ-ID-I1)</option>
-            <option value="10">Inicial - K5</option>
-            <option value="11">Inicial - Maestro de Grado Transferido</option>
-            <option value="12">Inicial - Maestro de Sala (MI-JM)</option>
-            <option value="13">Inicial - Preceptor</option>
-            <option value="14">Inicial - Representante Docente En El Tribunal</option>
-            <option value="15">Inicial - Secretario</option>
-            <option value="16">Inicial - Secretario de Inspección de 1ra (S1)</option>
-            <option value="17">Inicial - Secretario de Inspección de 2da (S2)</option>
-            <option value="18">Inicial - Secretario de Inspección de 3ra (S3)</option>
-            <option value="19">Inicial - Secretario de Jefatura (SJ)</option>
-            <option value="20">Inicial - Subdirector de Rep. Docente (SD-IR)</option>
-            <option value="21">Inicial - V1-Vicedirector de 1ra categoría - 20 Secciones 4hs</option>
-            <option value="22">Inicial - V2-Vicedirector de 2da categoría - 4hs</option>
-            <option value="23">Inicial - X2 o Z3</option>
-            <option value="24">Inicial - Profesor Ed. Física (Hs Cátedra)</option>
+            <option value="">Seleccione el Cargo</option>
+            {niveles[nivel].map((cargo) => (
+              <option key={cargo} value={cargo}>
+                {cargo}
+              </option>
+            ))
+            }
           </select>
+          )
+          }
           <select className="nivel form-select mb-3" aria-label="Default select example">
             <option selected>Seleccione la Carga Horaria</option>
             <option value="1">Jornada Simple</option>
